@@ -1,0 +1,72 @@
+{
+  "name": "face-age-insights-dashboard",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Open-source anonymized analytics dashboard for the face-age skin analysis widget. Collect skin concerns, skin-age buckets, skin health, and scan-to-cart conversion without storing photos or emails.",
+  "keywords": [
+    "face-age",
+    "skin-analysis",
+    "skin-age",
+    "skincare-analytics",
+    "anonymized-analytics",
+    "conversion-funnel",
+    "add-to-cart",
+    "skin-health",
+    "acne",
+    "beauty-tech",
+    "nextjs",
+    "dashboard",
+    "privacy"
+  ],
+  "homepage": "https://github.com/miladmostafa/face-age-insights-dashboard",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miladmostafa/face-age-insights-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/miladmostafa/face-age-insights-dashboard/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "copy:sdk": "node scripts/copy-face-age.mjs",
+    "predev": "node scripts/copy-face-age.mjs",
+    "dev": "next dev",
+    "prebuild": "node scripts/copy-face-age.mjs",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "seed": "tsx scripts/seed.ts",
+    "smoke": "tsx scripts/smoke.ts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "drizzle-orm": "^0.44.6",
+    "face-age": "^2.4.13",
+    "next": "^15.5.4",
+    "pg": "^8.16.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "recharts": "^2.15.4",
+    "tsx": "^4.20.5",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.18.6",
+    "@types/pg": "^8.15.5",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.36.0",
+    "eslint-config-next": "^15.5.4",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

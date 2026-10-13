@@ -1,0 +1,30 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: file:/data/insights.db
+      FACEAGE_CLIENT_ID: ${FACEAGE_CLIENT_ID:-}
+      DEMO_WRITE_KEY: ${DEMO_WRITE_KEY:-}
+      K_ANONYMITY: ${K_ANONYMITY:-5}
+      CONCERN_THRESHOLD: ${CONCERN_THRESHOLD:-40}
+      DASHBOARD_TOKEN: ${DASHBOARD_TOKEN:-}
+    volumes:
+      - insights-data:/data
+
+  postgres:
+    image: postgres:16-alpine
+    profiles: ["postgres"]
+    environment:
+      POSTGRES_USER: insights
+      POSTGRES_PASSWORD: insights
+      POSTGRES_DB: insights
+    ports:
+      - "5432:5432"
+    volumes:
+      - insights-postgres:/var/lib/postgresql/data
+
+volumes:
+  insights-data:
+  insights-postgres:

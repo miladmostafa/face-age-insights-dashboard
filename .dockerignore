@@ -1,0 +1,9 @@
+node_modules
+.next
+data
+.git
+docs
+.env
+.env.local
+*.md
+coverage
