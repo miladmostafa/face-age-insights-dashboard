@@ -33,4 +33,8 @@ describe("installed face-age package", () => {
     expect(source).toContain("getAdvisorData(e.problems)");
     expect(source).toContain("analysis:n,activeSelections:");
   });
+
+  it("clears the custom catalog when a scan is submitted in face-age 2.4.x", () => {
+    expect(source).toContain("n.productLoader=!0,n.productLists=[],n.productAddToCart=[]");
+  });
 });

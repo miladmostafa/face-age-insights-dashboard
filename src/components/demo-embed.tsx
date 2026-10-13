@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { restoreCatalogAfterScan } from "@/lib/demo-catalog";
 import type { DemoProduct } from "@/types/face-age";
 
 const PRODUCTS: DemoProduct[] = [
@@ -146,6 +147,9 @@ export function DemoEmbed({
           });
           setOptedOut(window.FaceAgeInsights.isOptedOut());
         }
+        // face-age 2.4.13 empties productLists when a scan is submitted and does not
+        // put this catalog back. Reapply it when results arrive, before the collector runs.
+        restoreCatalogAfterScan(widget, PRODUCTS);
         if (!cancelled) {
           setStatus(
             writeKey

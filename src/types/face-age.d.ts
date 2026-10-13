@@ -1,5 +1,10 @@
 export type FaceAgeWidget = {
   render: () => Promise<unknown>;
+  w?: {
+    globals?: {
+      getAdvisorData?: (data: unknown) => void;
+    };
+  };
   API?: {
     setCustomProducts?: (products: DemoProduct[]) => void;
     getAdvisorData?: (callback: (data: unknown) => void) => void;
